@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-  <meta charset="UTF-8">
-  <title></title>
+	<meta charset="UTF-8">
+	<title>Пример использования API RocketProfit.ru</title>
 </head>
 <body>
+<h1>Создание заказа</h1>
 
+<form action="create_order.php">
+	<label>Ид сайта <input name="site_id"></label>
+	<label>Фио <input name="fio"></label>
+	<label>Телефон <input name="phone"></label>
+	<button type="submit">Создать заказ</button>
+</form>
+
+<h1>Проверка статусов</h1>
+
+<form action="check_statuses.php">
+	<label>Ид заказов (через запятую) <input name="ids"></label>
+	<label>Логин <input name="login"></label>
+	<label>Ключ апи <input name="api_key"></label>
+	<button type="submit">Проверить статусы</button>
+</form>
 </body>
 </html>
