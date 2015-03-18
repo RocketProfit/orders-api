@@ -50,6 +50,11 @@ class RocketProfitApi
 	const ORDER_STATUS_CANCELLED = 6;
 
 	/**
+	 * @const integer Публичный статус заказа "Невалидная заявка"
+	 */
+	const ORDER_STATUS_INVALID_ORDER = 9;
+
+	/**
 	 * @var integer Статус ответа, если он успешный
 	 */
 	const HTTP_REQUEST_STATUS_SUCCESS = 200;
@@ -106,6 +111,7 @@ class RocketProfitApi
 		RocketProfitApi::ORDER_STATUS_SHIPPED => "Доставлен",
 		RocketProfitApi::ORDER_STATUS_PAID => "Доставлен (вознаграждение выплачено)",
 		RocketProfitApi::ORDER_STATUS_CANCELLED => "Отменен",
+		RocketProfitApi::ORDER_STATUS_INVALID_ORDER => "Невалидная заявка",
 	];
 
 	/**
