@@ -201,7 +201,7 @@ class RocketProfitApi
         }
 
         $this->data['login'] = $this->_login;
-        $this->data['key'] = md5($this->_api_key  . $this->data["login"]. $this->data["phone"]);
+        $this->data['key'] = md5($this->_api_key  . $this->data["flow_id"]. $this->data["phone"]);
 
         return $this->request('createOrderWithCustomData');
     }
