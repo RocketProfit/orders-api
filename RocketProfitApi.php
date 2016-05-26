@@ -154,12 +154,13 @@ class RocketProfitApi
      *
      * @param string|array $from Начало периода выборки
      * @param string|array $to Конец периода выборки
+     * @param string|array $orders Номера заказов
      * @return array Ответ сервера
      */
-    public function getOrdersInfo($from, $to)
+    public function getOrdersInfo($from = null, $to = null, $orders = null)
     {
         $this->data['login'] = $this->_login;
-        $this->data['key'] = md5($from . $to . $this->_api_key);
+        $this->data['key'] = md5($orders . $this->_api_key . $from . $to);
         $this->data['from'] = $from;
         $this->data['to'] = $to;
 
@@ -178,7 +179,6 @@ class RocketProfitApi
         $this->data = $data;
 
 
-
         return $this->request('createOrder');
     }
 
@@ -193,15 +193,15 @@ class RocketProfitApi
     {
         $this->data = $data;
 
-        if(!isset($this->data["phone"])){
+        if (!isset($this->data["phone"])) {
             throw new Exception("Не указан телефон!");
         }
-        if(!isset($this->data["flow_id"])){
+        if (!isset($this->data["flow_id"])) {
             throw new Exception("Не указан поток!");
         }
 
         $this->data['login'] = $this->_login;
-        $this->data['key'] = md5($this->_api_key  . $this->data["flow_id"]. $this->data["phone"]);
+        $this->data['key'] = md5($this->_api_key . $this->data["flow_id"] . $this->data["phone"]);
 
         return $this->request('createOrderWithCustomData');
     }

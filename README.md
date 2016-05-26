@@ -1,10 +1,11 @@
+# API для работы с заказами
 ## ->createOrderWithCustomData
- (Создание заказа с добавлением пользовательских данных)
+Создание заказа с добавлением пользовательских данных
 
 #### Пример URL для обращения:
  Данне можно передавать методом GET или POST
 
- http://rocketprofit.ru/crm/api/createOrderWithCustomData?flow_id=1&phone=82223334455&fio=Теркин%20Василий%20Василиевич&key=bc29b36f623ba82aaf6724fd3b16718&custom_data[my_shit]=mysupershit&custom_data[my_other_shit]=mysupershit2
+ http://www.rocketprofit.ru/crm/api/createOrderWithCustomData?flow_id=1&phone=82223334455&fio=Теркин%20Василий%20Василиевич&key=bc29b36f623ba82aaf6724fd3b16718&custom_data[my_shit]=mysupershit&custom_data[my_custom_data]=custom_data_data
 
 #### Возможные данные для передачи:
  (Обязательные элементы помечены звездочкой)
@@ -52,19 +53,30 @@
 #### Пример URL для обращения
  Данные можно передавать методом GET или POST
  
- http://rocketprofit.ru/crm/api/getOrdersInfo?login=BestPartner&from=2015-02-08+00:00:00&to=2015-02-09+23:59:59&key=0a153b13d8a443915f832424b8f7949a
+ http://www.rocketprofit.ru/crm/api/getOrdersInfo?login=BestPartner&from=2015-02-08+00:00:00&to=2015-02-09+23:59:59&key=0a153b13d8a443915f832424b8f7949a&orders=14,28,31,42,123
 
 #### Данные для передачи
- (все обязательные)
-
-     {
-        'login' : 'bestPartner', // логин в системе rocketprofit.ru
-        'key' : '1bc29b36f623ba82aaf6724fd3b16718', // строка, которая формируется по алгоритму md5($api_key.$from.$to); Где точка - конкатенация строк;
-        'from' : '2015-05-06 22:18:12', // начало выборки по периоду
-        'to' : '2015-05-07 22:18:12', // конец выборки по периоду
-    }
-
-
+  * login
+  * key
+  * from
+  * to
+  * orders
+ 
+ #### Формат данных
+  * login - логин сервера в системе rocketprofit.ru
+  * from - начало выборки по периоду вида '2015-05-06 22:18:12'
+  * to - конец выборки по периоду вида '2015-05-07 22:18:12'
+  * orders - строка с идентификаторами заказов в вашей системе через запятую либо массив идентификаторов
+  * key - ключ авторизации в любом регистре, который формируется по следующему алгоритму:
+       * Для строки с идентификаторами: md5($orders.$api_key.$from.$to);
+       * Для массива с идентификаторами: md5(implode(",", $orders).$api_key.$from.$to)
+  *
+  * Где:
+  * $orders - идентификаторы заказов (строка либо массив)
+  * $api_key - это ключ API вашего пользователя в системе rocketprofit.ru,
+  * . - это конкатенация строк
+  Обязательные поля: login, key. Также должны быть или идентификаторы заказов или даты from-to 
+         
 #### Формат ответа
 
      {
@@ -119,7 +131,7 @@
 #### Пример URL для обращения
  Данные можно передавать методом GET или POST
  
-http://rocketprofit.ru/crm/api/getOrdersStatuses?login=BestPartner&orders=14,28,31,42,123&key=0a153b13d8a443915f832424b8f7949a
+http://www.rocketprofit.ru/crm/api/getOrdersStatuses?login=BestPartner&orders=14,28,31,42,123&key=0a153b13d8a443915f832424b8f7949a
 
 #### Данные для передачи
  * login
