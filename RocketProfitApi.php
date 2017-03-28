@@ -72,6 +72,8 @@ class RocketProfitApi
 
     /**
      * @var string URL для обращения к API
+     *
+     * Для запросов на создание заказа, использовать url -> http://leads.ordertosales.ru/crm/api/
      */
     public $api_url = 'http://www.rocketprofit.ru/crm/api/';
 
