@@ -5,7 +5,7 @@
 #### Пример URL для обращения:
  Данне можно передавать методом GET или POST
 
- http://www.rocketprofit.ru/crm/api/createOrderWithCustomData?flow_id=1&phone=82223334455&fio=Теркин%20Василий%20Василиевич&key=bc29b36f623ba82aaf6724fd3b16718&custom_data[my_data]=myrealdata&custom_data[my_custom_data]=custom_data_data
+ http://leads.ordertosales.ru/crm/api/createOrderWithCustomData?flow_id=1&phone=82223334455&fio=Теркин%20Василий%20Василиевич&key=bc29b36f623ba82aaf6724fd3b16718&custom_data[my_data]=myrealdata&custom_data[my_custom_data]=custom_data_data
 
 #### Возможные данные для передачи:
  (Обязательные элементы помечены звездочкой)
