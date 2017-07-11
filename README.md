@@ -5,7 +5,7 @@
 #### Пример URL для обращения:
  Данне можно передавать методом GET или POST
 
- http://www.rocketprofit.ru/crm/api/createOrderWithCustomData?flow_id=1&phone=82223334455&fio=Теркин%20Василий%20Василиевич&key=bc29b36f623ba82aaf6724fd3b16718&custom_data[my_data]=myrealdata&custom_data[my_custom_data]=custom_data_data
+ http://www.rocketprofit.com/crm/api/createOrderWithCustomData?flow_id=1&phone=82223334455&fio=Теркин%20Василий%20Василиевич&key=bc29b36f623ba82aaf6724fd3b16718&custom_data[my_data]=myrealdata&custom_data[my_custom_data]=custom_data_data
 
 #### Возможные данные для передачи:
  (Обязательные элементы помечены звездочкой)
@@ -13,7 +13,7 @@
      {
         'phone' : '8913154884', // * число или строка, содержащая только цифры от 10 до 13 знаков
         'fio' : 'Петров Василий Юрьевич', // * любая сторка
-        'flow_id' : '123', // * число или строка, содержащая только цифры  - ID потока в системе rocketprofit.ru
+        'flow_id' : '123', // * число или строка, содержащая только цифры  - ID потока в системе rocketprofit.com
         'key' : '1bc29b36f623ba82aaf6724fd3b16718', // * строка, которая формируется по алгоритму md5($api_key.$flow_id.$phone); Где точка - конкатенация строк;
         'ip' : '195.123.234.23', // строка, IP адрес покупателя
         'date' : '2015-05-06 22:18:12', // Дата создания заказа в формате TIMESTAMP
@@ -52,9 +52,9 @@
 #### Пример URL для обращения
  Данные можно передавать методом GET или POST
  
- http://www.rocketprofit.ru/crm/api/getOrdersInfo?login=BestPartner&key=0a153b13d8a443915f832424b8f7949a&from=2015-02-08+00:00:00&to=2015-02-09+23:59:59
+ http://www.rocketprofit.com/crm/api/getOrdersInfo?login=BestPartner&key=0a153b13d8a443915f832424b8f7949a&from=2015-02-08+00:00:00&to=2015-02-09+23:59:59
  или
- http://www.rocketprofit.ru/crm/api/getOrdersInfo?login=BestPartner&key=0a153b13d8a443915f832424b8f7949a&orders=14,28,31,42,123
+ http://www.rocketprofit.com/crm/api/getOrdersInfo?login=BestPartner&key=0a153b13d8a443915f832424b8f7949a&orders=14,28,31,42,123
 
 #### Данные для передачи
   * login
@@ -64,7 +64,7 @@
   * orders
  
  #### Формат данных
-  * login - логин сервера в системе rocketprofit.ru
+  * login - логин сервера в системе rocketprofit.com
   * from - начало выборки по периоду вида '2015-05-06 22:18:12'
   * to - конец выборки по периоду вида '2015-05-07 22:18:12'
   * orders - строка с идентификаторами заказов в вашей системе через запятую либо массив идентификаторов
@@ -74,7 +74,7 @@
   *
   * Где:
   * $orders - идентификаторы заказов (строка либо массив)
-  * $api_key - это ключ API вашего пользователя в системе rocketprofit.ru,
+  * $api_key - это ключ API вашего пользователя в системе rocketprofit.com,
   * . - это конкатенация строк
   Обязательные поля: login, key. Также должны быть или идентификаторы заказов или даты from-to 
          
@@ -150,7 +150,7 @@
 #### Пример URL для обращения
  Данные можно передавать методом GET или POST
  
-http://www.rocketprofit.ru/crm/api/getOrdersStatuses?login=BestPartner&orders=14,28,31,42,123&key=0a153b13d8a443915f832424b8f7949a
+http://www.rocketprofit.com/crm/api/getOrdersStatuses?login=BestPartner&orders=14,28,31,42,123&key=0a153b13d8a443915f832424b8f7949a
 
 #### Данные для передачи
  * login
@@ -158,7 +158,7 @@ http://www.rocketprofit.ru/crm/api/getOrdersStatuses?login=BestPartner&orders=14
  * key
 
 #### Формат данных
- * login - логин сервера в системе rocketprofit.ru
+ * login - логин сервера в системе rocketprofit.com
  * orders - строка с идентификаторами заказов в вашей системе через запятую либо массив идентификаторов
  * key - ключ авторизации в любом регистре, который формируется по следующему алгоритму:
  * Для строки с идентификаторами: md5($orders.$api_key);
@@ -166,7 +166,7 @@ http://www.rocketprofit.ru/crm/api/getOrdersStatuses?login=BestPartner&orders=14
  *
  * Где:
  * $orders - идентификаторы заказов (строка либо массив)
- * $api_key - это ключ API вашего пользователя в системе rocketprofit.ru,
+ * $api_key - это ключ API вашего пользователя в системе rocketprofit.com,
  * . - это конкатенация строк
  
 #### Формат ответа
